@@ -1,0 +1,829 @@
+@charset "UTF-8";
+
+/* 
+font-family: "Noto Sans KR", sans-serif;
+font-family: 'Hana2.0 B';
+*/ 
+
+/* 전체 레이아웃 */
+#banner {background-color: #a0d1ee; height: 470px;}
+
+/* contents layout */
+#cont1 {height: 940px; background-color: #f5f6f8;}
+#cont2 {height: 555px; background-color: #efefef;}
+
+/* footer layout */
+#footer_notice {background-color: #fff; border-bottom: 1px solid #e6e6e6; height: 71px;}
+#footer_info {height: 242px; background-color: #f7f8f9;}
+
+/* 중심영역 */
+.container { 
+    margin: 0 auto; 
+    position: relative;
+    width: 1200px;}
+
+/* header */
+.header { font-family: 'Hana2.0 B'; padding: 7px 0;}
+.header ul li { 
+    float: left; 
+    /* background-image: url(../img/bar1.gif); */
+
+    /* 👇 억지로 크기를 채우려고 반복하지 않고, 이미지 원본을 유지한다. */
+    /* background-repeat: no-repeat;  */
+
+    /* 👇 background-position: X값 Y값; */
+    /* background-position: 0 9px; */
+
+    /* 🚩 backround 단축어
+    background: color / img / repeat / position or size ;  */
+    background: url(../img/bar1.gif) no-repeat 0 9px ;
+}
+.header ul li a {display: block; padding: 8px 15px;}
+
+/* 🚩 inline 요소와 block 요소의 padding과 margin의 차이
+block 요소는 padding과 margin이 ❗❗상하 좌우❗❗ 적용이 된다.
+inline 요소는 padding과 margin이 ❗❗좌우❗❗만 적용된다. */
+
+.header ul.list1 {float: left;}
+.header ul.list1 li:nth-child(2) {background: none;}
+.header ul.list1 li.green a {
+    background-color: #00907f;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.header ul.list2 {float: right;}
+.header ul.list2 li.log a {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 3px 10px;
+    margin: 5px 14px 5px 0;
+}
+
+/* banner */
+
+
+/* ban_left */
+.ban_left {position: relative;}
+.ban_left .ob {
+    position: absolute; top: 0; left: -300px;
+    will-change: opacity, transform; /* ❗❗ gpu에게 애니메이션이 일어날것을 미리 알려서 준비하게 만듦, gpu를 활성화 시켜서 애니메이션을 좀 더 부드럽게 실행할 수 있게 한다. */
+}
+
+.ban_left .ob1 { /* 구름1 */
+    top: 161px; left: 151px;
+    animation: gulum 3s 0.3s linear infinite both;
+}
+.ban_left .ob2 { /* 구름2 */
+    top: 217px; left: 133px;
+    animation: gulum 3s 0.6s linear infinite both;
+}
+.ban_left .ob3 { /* 달력 */
+    top: 78px; left: 208px;
+    animation: dalyunk 0.3s 0.5s both;
+}
+
+.ban_left .ob3-1 { /* 쇼핑할땐 */
+    top: 112px; left: 250px;
+    animation: toleft 0.5s 0.7s both;
+}
+.ban_left .ob3-2 { /* 타이틀 */
+    top: 140px; left: 250px;
+    animation: toleft 0.5s 0.9s both;
+}
+.ban_left .ob3-3 { /* 1 */
+    top: 213px; left: 264px;
+    animation: btoBottom 0.5s 0.7s both;
+}
+.ban_left .ob3-4 { /* 1 */
+    top: 213px; left: 320px;
+    animation: btoBottom 0.5s 0.9s both;
+}
+.ban_left .ob4 { /* 우산 */
+    top:302px; left: 433px;
+    animation: toBoLeft 0.3s 2.8s both;
+}
+.ban_left .ob5 { /* 슈트케이스 */
+    top: 317px; left: 357px;
+    animation: btoBottom2 0.3s 2.8s both;
+}
+.ban_left .ob6 { /* 자동차 */
+    top:343px; left: 220px;
+    animation: car 0.6s 1.8s both;
+}
+.ban_left .ob7 { /* 선물 */
+    top:268px; left: 376px;
+    animation: btoBottom 0.3s 2.9s both;
+}
+.ban_left .ob8 { /* 박스 */
+    top:285px; left: 360px;
+    animation: btoBottom 0.3s 3.0s both;
+}
+.ban_left .ob9 { /* 가방 */
+    top:275px; left: 415px;
+    animation: btoBottom 0.3s 3.2s both;
+}
+.ban_left .ob10 { /* 바람1 */
+    top:370px; left: 501px;
+    transform-origin: left top; /* 애니메이션 효과의 기준점(시작점)을 이동한다. */
+    animation: wind 2s 3.4s linear infinite both;
+}
+.ban_left .ob11 { /* 바람2 */
+    top:370px; left: 501px;
+    transform-origin: left top; /* X(left) Y(top)에서 시작한다. */
+    animation: wind 2s 3.2s linear infinite both;
+}
+.ban_left .ob12 { /* 돌아가는 원 */
+    top:119px; left: 485px;
+    animation: rotate 3s linear infinite both;
+}
+.ban_left .ob13 { /* 써프라이즈 */
+    top:189px; left: 378px;
+    animation: wind 3s 4s both;
+    transform-origin: left center;
+}
+
+
+
+@keyframes gulum {
+    0% {transform: translateX(-10px);}
+    50% {transform: translateX(10px);}
+    100% {transform: translateX(-10px);}
+}
+
+@keyframes dalyunk {
+    0% {opacity: 0; transform: translateY(-300px);}
+    100% {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes toleft {
+    0% {opacity: 0; transform: translateX(500px);}
+    100% {opacity: 1; transform: translateX(0);}
+}
+
+@keyframes btoBottom {
+    0% {opacity: 0; transform: translateY(-500px);}
+    70% {opacity: 1; transform: translateY(30px);}
+    100% {opacity: 1; transform: translateY(0px);}
+}
+
+@keyframes btoBottom2 {
+    0% {opacity: 0; transform: translateY(-100px);}
+    100% {opacity: 1; transform: translateY(0px);}
+}
+@keyframes toBoLeft {
+    0% {opacity: 0; transform: translate(110px,-100px);}
+    100% {opacity: 1; transform: translate(0,0)}
+}
+
+@keyframes car {
+    0% {opacity: 0; transform: translateX(500px);}
+    85% {opacity: 1; transform: translateX(-300px);}
+    100% {opacity: 1; transform: translateX(0px);}
+}
+
+@keyframes wind {
+    0% {transform: scale(0); opacity: 0;}
+    10% {transform: scale(1); opacity: 1;}
+    100% {transform: scale(1); opacity: 1;}
+}
+
+@keyframes rotate{
+    0% {transform: rotate(0deg);} /* deg : degree 각도 */
+    100% {transform: rotate(359deg);}
+}
+
+
+/* ban_right */
+.ban_right {
+    width: 600px; 
+    position: absolute; top: 50px; right: 0;
+}
+
+
+.ban_right .br_tit {
+    padding: 45px 0 43px 100px;
+    background-color: #fff; 
+}
+.ban_right .br_tit h3 {
+    font-size: 36px; font-weight: 700; 
+    letter-spacing: -1px; /* 글자의 간격, 🚩자간 */
+    line-height: 44px;
+}
+.ban_right .br_tit p {
+    position: relative;
+    padding-top: 50px;
+    font-size: 14px;
+}
+.ban_right .br_tit p::before {
+    content: ""; /* 💛 before이 있기때문에 필수, 없으면 나타나지 않는다. */
+    position: absolute; top: 24px; left: 0;
+    width: 30px; height: 2px; /* 💛 높이가 2px라서 padding-top의 50px에서 빼고 반을 나누면 24px이 나온다. */
+    background-color: #00907f;
+}
+
+
+.ban_right .login_btn {
+    position: absolute; top: 62px; right: 60px;
+}
+.ban_right .login_btn ul li a {
+    display: block;
+    width: 80px; height: 80px;
+    text-align: center; font-size: 14px; 
+    color: #fff;
+}
+.ban_right .login_btn li.lb1 a {
+    /* background: color image repeat position/size; */
+    background: #db3360 url(../img/ico_login.png) no-repeat center 18px;
+    padding-top: 45px; /* 💛 글자를 들여쓰기 위해서 패딩값을 줬다. */
+    box-sizing: border-box; /* 💛 패딩값만 주게 되면, 높이가 무너지기 때문에 꼭 사이즈를 맞춰주어야 한다. */
+    margin-bottom: 1px;
+    transition: 0.3s;
+}
+.ban_right .login_btn li.lb1 a:hover {
+    /* ❗❗ hover같은 경우, 102줄과 같은 명령어와 겹칠 수 있기 때문에 상세히(color를 정확히) 적어야 한다. */
+    background-color: #c4204c;
+}
+.ban_right .login_btn li.lb2 a {
+    background: #3c3f44;
+    line-height: 80px;
+    transition: 0.3s;
+}
+.ban_right .login_btn li.lb2 a:hover {
+    background-color: #222;
+}
+
+.ban_right .br_btn {
+    margin-top: 25px;
+    height: 50px;
+    background-color: #00907f;
+    line-height: 50px;
+}
+.ban_right .br_btn ul li {
+    position: relative;
+    float: left;
+    width: 25%;
+    text-align: center;
+}
+.ban_right .br_btn ul li::before {
+    content: "";
+    position: absolute; top: 17px; left: 0;
+    width: 1px; height: 18px;
+    background-color: #62bdb1;
+}
+.ban_right .br_btn ul li:first-child::before {
+    width: 0; height: 0;
+}
+.ban_right .br_btn ul li a {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+}
+
+/* nav */
+
+/* ❗❗ block은 부모의 넓이를 따라간다.
+block ==> float : 자식의 공간만 차지
+block ==> position : absolute; : 자식의 공간만 차지
+block ==> position : fixed; : 자식의 공간만 차지 
+==> 다시 공간을 설정해줘야 한다.
+❗ 위의 세가지 경우는 자식이 float 일때, 영역이 깨지지 않는다. 
+*/
+
+#nav { 
+    position: absolute; top: -49px; left: 0; 
+    padding: 30px 0;
+    width: 100%;
+    background-color: #fff; 
+    border-bottom: 1px solid #e6e6e6; 
+    font-family: 'Hana2.0 B';
+}
+
+#nav .gnb {padding-left: 60px;}
+#nav .gnb li {display: inline; padding: 10px; font-size: 16px;}
+/* inline으로 하게 되면 옆으로 정렬이 된다, 허나 글자로 취급되기 때문에 간격에 문제가 생길 수 있다. */
+#nav .gnb li a {display: inline-block; padding: 10px 16px;
+transition: 0.3s; font-size: 17px;}
+#nav .gnb li a:hover {background-color: #00907f; color: #fff; border-radius: 3px;}
+
+
+#nav .gnb_right {position: absolute; top: 30px; right: 50px;}
+#nav .gnb_right li {float: left;}
+#nav .gnb_right li a {
+    display: block; 
+    padding: 11px 20px; 
+    font-size: 14px; 
+    transition: 0.3s;
+    border-radius: 3px;
+}
+#nav .gnb_right li a:hover {
+    color: #fff;
+    background-color: #00907f;
+}
+
+#nav .gnb_right .gr1 {margin-right: 10px;}
+#nav .gnb_right .gr1 a {border: 1px solid #e1e1e1;}
+#nav .gnb_right .gr2 a {
+    background-color: #404b57;
+    border: 1px solid #404b57;
+    color: #fff;
+}
+#nav .gnb_right .gr2 a:hover {
+    background-color: #000;
+    border-color:#000;
+    /* border: border-width border-style border-color; */
+}
+#nav .gnb_right .gr2 i {padding-left: 8px;}
+
+#nav .gnb_search {
+    position: absolute; top: 22px; right: 286px;
+    width: 50px; height: 50px;
+    background: url(../img/gnb_search.png) no-repeat;
+}
+
+#nav .gnb_event {
+    position: absolute; top: -35px; left: 20px;
+    padding: 2px 23px 3px;
+    background-color: #3c3f44;
+    font-size: 14px; color: #fff; 
+    text-transform: uppercase; /* ❗ 글자를 대문자로 바꾼다. */
+    /* text-transform: capitalize; 첫글자만 대문자로 바꾼다. */
+    line-height: 30px;
+}
+#nav .gnb_event i {padding-left: 10px;}
+
+/* ❗❗ 인라인(inline) 태그중 구분해야하는 내용
+
+공통점 : 글자가 굵게 보인다.
+strong : (속성 자체) 중요한 내용임을 명시해준다.
+b : 디자인적으로만 글자를 굵게 보이게 한다.
+
+공통점 : 글자가 기울인채로 보인다.
+em : (속성 자체) 중요한 내용임을 명시해준다.
+i : 디자인적으로만 글자를 기울인채로 보이게 한다.
+*/
+
+
+/* card */
+#card {padding-top: 60px;}
+#card>div {float: left; width: 50%; height: 285px;}
+
+#card .card_img {background-color: #fff;}
+#card .card_desc {background-color: #eaebef;}
+
+
+/* card_img  */
+.card_img {  
+    position: relative;  
+    padding: 18px 47px 0;
+    box-sizing: border-box;
+} 
+.card_img h4 {font-size: 18px; color: #000; margin-bottom: 11px;}
+.card_img .card_banner ul {display: flex;}
+/* flex의 경우, 부모에게 주어야 한다. */
+.card_img .card_banner ul li {margin-right: 30px; width: 146px; text-align: center;}
+.card_img .card_banner ul li:last-child {margin-right: 0;}
+.card_img .card_banner ul li a img {width: 100%;}
+
+/* 
+
+inline 요소
+1) 공간을 인식하지 못한다.
+단, 예외로 ❗❗ img / button ❗❗ 태그는 공간을 inline 요소인데도 공간을 인식한다.
+
+2) margin, padding 상하가 적용되지 않는다.
+
+3) ❗❗ inline-block
+❗❗ inline의 속성인 가로로 정렬 ❗❗ 하면서, ❗❗ block의 속성인 공간(가로*세로) ❗❗ 또한 가진다.
+*/
+
+.card_img .card_banner ul li a em {
+    display: block; 
+    padding-top: 8px;
+    font-size: 14px;
+}
+
+#card .card_img .cardmore_btn {
+    position: absolute; /* abbolute가 되는 순간, inline 요소든 block 요소든 상관없이 속성이 동일해진다. ==> inline-block 요소처럼 비슷하게 넓이를 가지고 비슷하게 행동한다. (100% 똑같진 않다.) */
+    top: 73px; right: -31px;
+    background: url(../img/btn_card_v01.png);
+    width: 31px; height: 144px;
+}
+
+/* card_link */
+#card .card_link {margin-top: 30px;}
+#card .card_link ul {display: flex; gap: 13px;}
+#card .card_link ul li a {
+    display: block;
+    padding: 10px 11px ;
+    border: 1px solid #e8e8e8;
+    font-size: 15px;
+    transition: 0.3s;
+}
+#card .card_link ul li a:hover {
+    border-color: #666; /* 1px solid 는 중복 명령어이기 때문에 생략 가능 */
+    color: #00907f;
+}
+
+
+
+/* card_desc */
+#card .card_desc {
+    text-align: center; 
+    padding-top: 50px;
+    box-sizing: border-box;
+}
+
+#card .card_desc dl dt {
+    font-size: 15px; color: #777;
+    font-weight: 500;
+}
+
+
+#card .card_desc dl .cd1 {
+    font-size: 23px;
+    margin: 26px 0 45px;
+}
+#card .card_desc dl .cd1::before,
+#card .card_desc dl .cd1::after {
+    content: '"'; /* "를 써야하기 때문에 겹치지 않도록 바깥에 ''를 쓴다. */
+    color: #00907f;
+}
+
+
+#card .card_desc dl .cd2 ul {
+    display: flex; 
+    justify-content: 
+    center; gap: 3px;
+}
+#card .card_desc dl .cd2 ul li a {
+    display: block; 
+    /* 만약 li를 'display: inline"; 으로 정렬하면 자식은 "inline-block"이 되어야 한다. */
+    padding: 8px 30px;
+    background-color: #fff;
+    border: 1px solid #fff; /* hover 썼을때, 크기 변함없이 border 컬러를 바꾸기 위해 넣는다. */
+    transition: 0.3s;
+
+}
+#card .card_desc dl .cd2 ul li a:hover {
+    border-color: #bbb; /* 기존에 border를 넣었기 때문에 컬러만 바꾼다면 clolr만 잡아도 된다. */
+}
+
+/* event */
+#event {display: flex; margin-top: 10px; text-align: center;}
+
+
+/* event_box1 */
+.event_box1>div {width: 300px; height: 188px; padding-top: 110px; box-sizing: border-box;}
+.event_box1 .eb_desc {font-size: 16px; font-weight: 300;}
+.event_box1 .eb_tit {font-size: 20px;}
+.event_box1 .eb_banner1 {background: #01937f url(../img/event_icon1.png) no-repeat center top 25px;}
+.event_box1 .eb_banner2 {background: #766e9c url(../img/event_icon2.png) no-repeat center top 25px;}
+.event_box1 .eb_banner3 {background: #43587d url(../img/event_icon3.png) no-repeat center top 25px;}
+
+/* event_box2 */
+.event_box2 {
+    position: relative;
+    width: 600px;
+    background-color: #fff;
+}
+.event_box2 .eb_banner4 {height: 376px;}
+
+/* 🚩 js 코드를 들고 왔기 때문에 우리가 쓰고 있는 html에는 없다. 
+홈페이지를 열어서 개발자 모드를 통해 찍으면서 확인해가야 한다. */
+
+.event_box2 ul.slick-dots {
+    position: absolute; top: 50px; right: 50px;
+    display: flex; gap: 10px;
+}
+.event_box2 ul.slick-dots li button { /*  inline 요소지만, img와 button 태그는 공간를 가진다. */
+    font-size: 0; line-height: 0;   
+    width: 8px; height: 8px;    
+    background-color: rgba(0,0,0,0.3); border-radius: 50%;
+    cursor: pointer;  /* 커서 모양이 (버튼을 누르는) 손가락 모양으로 바뀐다. */
+}
+.event_box2 ul.slick-dots li.slick-active button { 
+    /* 개발자 모드로 들어가면 slick-active가 활성화 되면 해당 영역이 같이 보인다. */
+    background-color: #d75e7e;
+}
+
+/* 정지/재생 버튼 */
+.page_act {
+    position: absolute; top: 58.5px; right: 105px; font-size: 0;
+}
+.page_act .btn_stop {
+    display: none;
+    width: 8px; height: 8px;
+    background: url(../img/btn_banner_stop.png) no-repeat;
+}
+.page_act .btn_play {
+    display: block;
+    width: 8px; height: 8px;
+    background: url(../img/btn_banner_play.png) no-repeat;
+}
+
+
+.page_act.on .btn_stop {display: block;}  /* on이 있을땐 storp이 보이고 */
+.page_act.on .btn_play {display: none;}   /* on이 있을땐 play가 없어진다. */
+
+.event_box2 .eb_icon {position: absolute; top: 52px; left: 57px; z-index: 20;}
+.event_box2 .eb_icon ul {display: flex; gap: 8px;}
+.event_box2 .eb_icon ul li a {display: block; padding: 3px 12px; font-size: 13px;}
+.event_box2 .eb_icon ul li.ei1 a i {padding-left: 8px;}
+.event_box2 .eb_icon ul li.ei1 a {
+    background-color: #00907f;
+    border: 1px solid #00907f;
+    color: #fff;
+    transition: 0.3s;
+}
+.event_box2 .eb_icon ul li.ei1 a:hover {
+    background-color: #007668;
+    border-color: #007668;
+}
+.event_box2 .eb_icon ul li.ei2 a {
+    border: 1px solid #ccc;
+    transition: 0.3s;
+}
+.event_box2 .eb_icon ul li.ei2 a:hover {
+    border-color: #000;
+}
+
+/* eb_banner5 */
+.event_box2 .eb_banner5 {
+    position: relative;
+    background: #8cc7e9 url(../img/event_icon4.png) no-repeat center left 170px; 
+    height: 188px; 
+}
+.event_box2 .eb_banner5 h4 {
+    position: absolute; top: 60px; left: 60px;
+    font-family: 'Hana2.0 B'; font-size: 20px; color: #000; 
+}
+.event_box2 .eb_banner5 ul.money {
+    display: flex; 
+    padding-top: 44px; padding-left: 270px;
+    flex-wrap: wrap;
+}
+.event_box2 .eb_banner5 ul.money li {margin-right: 8px; margin-top: 8px;}
+.event_box2 .eb_banner5 ul.money li a {
+    display: block; 
+    width: 154px;
+    background-color: #fff; 
+    font-size: 14px;
+    border-radius: 3px;
+    transition: 0.3s;
+    padding: 9px 0;
+}
+.event_box2 .eb_banner5 ul.money li.w100 a {width: 100px;}
+.event_box2 .eb_banner5 ul.money li a:hover {
+    background-color: #f4f4f4;
+}
+
+.event_box2 .eb_banner5 .point {
+    position: absolute; top: 31px; left: 59px;
+    padding: 3px 12px;
+    background-color: #43587d;
+    border-radius: 2px;
+    color: #fff; font-size: 13px;
+}
+
+
+/* event_box3 */
+.event_box3 .eb_slider2 {position: relative;}
+
+.event_box3 { 
+    background-color: #d7567e;
+    color: #fff;
+    width: 300px; height: 564px;
+    text-align: center;
+}
+
+.event_box3 h4 {padding: 40px 0; font-size: 22px;}
+.event_box3 img {display: inline;}
+
+.eb_slider2 ul.slick-dots {
+    margin-top: 8px; 
+    display: flex; gap: 10px; justify-content: center;
+    padding-left: 20px;
+}
+.eb_slider2 ul.slick-dots li button {
+    font-size: 0; /* 버튼이 사라진다. */
+    background-color:rgba(255,255,255,0.6);
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    line-height: 0;
+}
+.eb_slider2 ul.slick-dots li.slick-active button {
+    background-color:rgba(255,255,255);
+}
+
+.event_box3 p {font-size: 16px; padding: 35px 0 15px;}
+.event_box3 .es2_btn {
+    display: inline-block;
+    background-color: #fff;
+    padding: 10px 50px;
+    border-radius: 3xp;
+}
+
+.event_box3 .page_act {
+    top:286px; left:118px;
+    /* 힘 top > bottom / left > right, 간혹 top이나 left에 auto를 줘야 bottom 또는 right가 힘을 갖게 되는 경우도 있다.  */
+}
+
+/* life */
+
+.life {height: 330px; position: relative;}
+.life .life_menu {position: absolute; top: 60px; left: 50%; z-index: 10;}
+.life .life_menu ul {display: flex; gap: 45px;}
+.life .life_menu ul li a {
+    display: block; /* flex를 하면 block으로 바뀌기 때문에 따로 주지 않아도 된다. */
+    width: 100px; height: 100px; 
+    background-color: #ddd;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center; align-items: center;
+    transition: 0.3s;
+}
+
+.life .life_menu ul li a:hover {background-color: #cc3b63; color: #fff;}
+
+.life .life_style ul li {
+    position: absolute; 
+    /* 
+    top: 0; left: 0; right: 0; bottom: 0; : 4개를 줄여서 적은것이 inset 👇
+    inset-block : 위아래, start : 위 / end : 아래
+    inset-inline : 좌우, start : 좌 / end : 우
+    */
+    inset: 0; 
+}
+.life .life_style ul li:nth-child(1) {
+    background: url(../img/mc_service_bg02.png) no-repeat;
+}
+.life .life_style ul li:nth-child(2) {
+    background: url(../img/mc_service_bg03.png) no-repeat;
+}
+.life .life_style ul li:nth-child(3) {
+    background: url(../img/mc_service_bg04.png) no-repeat;
+}
+.life .life_style ul li:nth-child(4) {
+    background: url(../img/mc_service_bg05.png) no-repeat;
+}
+
+.life .life_style ul li .text a {
+    display: block;
+    width: 50%;
+    font-size: 50px;
+    padding: 60px 0 0 30px;
+}
+.life .life_style ul li .text a em {
+    display: block; /* a태그 아래로 두기 위해 block의 특성 이용 */
+    font-size: 18px; 
+    letter-spacing: 1px; /* 자간 */
+    /* 포토샵으로 시안을 받게되면 letter-spacing 계산
+    em : 현재 위치의 태그가 가지는 font-size
+    1000 -> 1em  /  100 -> 0.1em  /  500 -> 0.5em  /  5000 -> 5em  /  25 -> 0.025em
+    */
+}
+
+
+.life_btn { 
+    position: absolute; bottom: 86px; left: 0; right: 0;
+    z-index: 50;
+    background-color: #fff; 
+    text-align: center;
+}
+.life_btn ul {display: flex; justify-content: space-around;}
+/* 👇 space-around를 사용하게 되면 동등한 너비를 사용하지 않기 때문에 너비를 0, flex 특성중 하나인 억지로 늘어나는것을 없애고 동등하게 1을 가져라는 명령어를 주어야 한다. */
+/* 또는 space-around를 쓰지말고 width : 16.6666% 를 쓰는 방법도 있다. */
+.life_btn ul li {position: relative; width: 0; flex-grow: 1;}
+.life_btn ul li::after {content: ""; position: absolute; top: 18px; left: -13px; width: 1px; height: 14px; background-color: #ccc;}
+/* 👇 이미 위에 content가 있기 때문에 중복으로 굳이 쓸 필요가 없다. */
+.life_btn ul li:first-child:after {display: none;} 
+/* .life_btn ul li:has(.first) 👉6개의 li 중에서 first 라는 클래스명이 있는 li👈를 불러낸다. */
+
+.life_btn ul li a {
+    display: block;
+    padding: 13px 0; 
+    font-size: 16px; color: #333;
+}
+.life_btn ul li a:hover {
+    color: #00907f;
+}
+
+
+
+/* app */
+
+#app {display: flex; justify-content: space-between;}
+
+/* app_left */
+#app .app_left {
+    width: 49%; height: 200px; 
+    background: #FFF url(../img/mc_service_banner01_img.jpg) no-repeat top 45px left 45px;
+    padding: 45px 0 0 275px; 
+    box-sizing: border-box;
+}
+#app .app_left ul {display: flex; gap: 20px;}
+#app .app_left ul li {border: 1px solid #eaeaea; border-radius: 10px; overflow: hidden; width: 48px; height: 48px;}
+#app .app_left ul li a img {width: 100%;}
+
+#app .app_left .al_text {margin-top: 12px;}
+#app .app_left .al_text a {font-size: 16px; color: #666;}
+#app .app_left .al_text a strong {display: block; font-size: 20px; line-height: 34px;}
+
+/* app_right */
+#app .app_right {width: 50%; height: 200px; background-color: #ddd;display: flex;}
+.app_right>div {width: 0; flex-grow: 1; height: 200px; text-align: center; color: #FFF; font-size: 16px;}
+
+.app_right .ar_ban1{
+    background:#2f4359 url(../img/service_ban01.png) no-repeat center 50px ;
+    padding-top: 130px; box-sizing: border-box;
+}
+
+.app_right .ar_ban2{background:#00907f url(../img/service_ban01.png) no-repeat center 50px ;
+    padding-top: 130px; box-sizing: border-box}
+
+.app_right .ar_ban3{flex-grow: 2; background: #FFF; padding: 20px 20px 19px; box-sizing: border-box;}
+.app_right .ar_ban3 .ban3_text{
+    color: #666; 
+    background: url(../img/service_ban03.png) no-repeat 10px 40px;
+    font-size: 15px;
+    padding: 20px 20px 30px 75px;
+    border-bottom: 1px solid #ddd;
+}
+.app_right .ar_ban3 .ban3_text h5 {font-size: 25px; color: #000;padding-bottom: 5px;}
+.app_right .ar_ban3 .ban3_slide {color: #000; font-size: 16px; padding-top: 10px;}
+
+
+/* footer */
+#footer .container {height: 100%;}
+.notice {display: flex; gap: 30px; align-items: center; height: 100%;position: relative;}
+.notice h3 {font-size: 15px;}
+.notice h3 i {
+    font-size: 10px;
+    border: 1px solid #ccc; 
+    padding: 4px;
+    /* 👇 인라인 요소의 수직 정렬 : 주로 인라인 요소의 수직이 안맞을때 사용한다. */
+    vertical-align: 1px; 
+}
+.notice ul {display: flex; gap: 50px;}
+.notice ul li {
+    width: 400px;
+    position: relative;
+    padding-left: 8px;
+
+    /* 한줄 말줄임말 세트 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.notice ul li:before {
+    content: ""; 
+    width: 3px; height: 3px; 
+    background-color: #333; 
+    position: absolute; top: 10px;  left: 0; /* 무조건 글자가 움직여야 한다. */
+}
+
+.notice ul li a {color: #666; font-size: 15px;}
+
+.notice .notice_btn {
+    position: absolute; right: 0; 
+    padding: 3px 20px; 
+    font-size: 14px;
+    border: 1px solid #e6e6e6; border-radius: 3px;
+    transition: 0.3s;
+}
+.notice .notice_btn:hover {
+    border-color: #000;
+}
+
+/* info */
+.info a {color: #666;}
+.info a:hover {color: #00907f;}
+
+.f_nav {display: flex; gap: 10px;}
+.f_nav li {padding: 10px 0;}
+.f_nav li a strong {font-weight: bold; color: #000;}
+.f_nav li a strong:hover {color: #00907f;}
+
+.f_address {margin-top: 20px;}
+.f_address span {padding-right: 15px;}
+
+.f_icon {margin-top: 20px;}
+.f_icon ul {display: flex; gap: 30px;}
+.f_icon ul li {padding: 5px 0; background-position: center;}
+
+.f_icon ul li.fi1 {background: url(../img/mark01.png)no-repeat 0 center; padding-left: 38px;}
+.f_icon ul li.fi2 {background: url(../img/mark02.png)no-repeat 0 center; padding-left: 45px;}
+.f_icon ul li.fi3 {background: url(../img/mark03.png)no-repeat 0 center; padding-left: 46px;}
+.f_icon ul li.fi4 {background: url(../img/mark04.png)no-repeat 0 center; padding-left: 63px;}
+.f_icon ul li.fi5 {background: url(../img/mark05.png)no-repeat 0 center; padding-left: 41px;}
+
+.family_site {
+    position: absolute; top: 20px; right:0;
+    padding: 7px 20px;
+    font-size: 14px; border: 1px solid #e6e6e6;
+}
+.family_site a i {padding-left: 5px;}
+
+.sns_icon {position: absolute; top: 77px; right:0;}
+.sns_icon ul {display: flex; gap: 5px;}
